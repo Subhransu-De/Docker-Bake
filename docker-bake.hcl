@@ -1,3 +1,12 @@
+variable "APP_NAME" {
+    default = "myapp"
+    description = "The name of the application."
+}
+variable "NODE_VERSION" {
+    default = "22"
+    description = "The version of Node.js to use."
+}
+
 variable "TAG" {
     default = "latest"
     description = "The tag for the application."
@@ -5,17 +14,7 @@ variable "TAG" {
 
 variable "COMMIT_SHA" {
     default = ""
-    description = "The commit SHA for the application."
-}
-
-variable "NODE_VERSION" {
-    default = "22"
-    description = "The version of Node.js to use."
-}
-
-variable "APP_NAME" {
-    default = "myapp"
-    description = "The name of the application."
+    description = "The last commit's SHA."
 }
 
 group "default" {
@@ -52,4 +51,3 @@ target "linux-arm64" {
     "${APP_NAME}:${COMMIT_SHA}-arm64"
   ]
 }
-
