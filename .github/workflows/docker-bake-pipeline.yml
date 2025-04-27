@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - main
+
+env:
+  COMMIT_SHA: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,5 +23,5 @@ jobs:
 
       - name: Build
         run: |
-          COMMIT_SHA=${{ github.sha }}
           docker buildx bake --print
+          docker buildx bake
