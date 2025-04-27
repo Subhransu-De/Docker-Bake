@@ -32,6 +32,7 @@ target "base" {
     labels = {
         maintainer = "me@subhransude.dev"
     }
+    output = ["type=docker"]
 }
 
 target "linux-amd64" {
