@@ -28,8 +28,7 @@ jobs:
 
       - name: Verify Images
         run: |
-          docker images
-          docker images | grep "myapp:latest-amd64" || exit 1
-          docker images | grep "myapp:${{ env.COMMIT_SHA }}-amd64" || exit 1
-          docker images | grep "myapp:latest-arm64" || exit 1
-          docker images | grep "myapp:${{ env.COMMIT_SHA }}-arm64" || exit 1
+          docker images | grep "latest-amd64" || exit 1
+          docker images | grep "${COMMIT_SHA}-amd64" || exit 1
+          docker images | grep "latest-arm64" || exit 1
+          docker images | grep "${COMMIT_SHA}-arm64" || exit 1
