@@ -17,9 +17,6 @@ variable "COMMIT_SHA" {
     description = "The last commit's SHA."
 }
 
-group "default" {
-    targets = ["linux-amd64", "linux-arm64"]
-}
 target "base" {
     context = "."
     dockerfile = "Dockerfile"
@@ -29,25 +26,24 @@ target "base" {
     pull = true
     no-cache = true
     labels = {
-        maintainer = "me@subhransude.dev"
+        maintainer = "Subhransu-De"
     }
     output = ["type=docker"]
 }
 
-target "linux-amd64" {
-    inherits = ["base"]
-    platform = "linux/amd64"
-    tags = [
-    "${APP_NAME}:${TAG}-amd64",
-    "${APP_NAME}:${COMMIT_SHA}-amd64"
-  ]
+group "default" {
+    targets = ["build"]
 }
 
-target "linux-arm64" {
+target "build" {
     inherits = ["base"]
-    platform = "linux/arm64"
+    name = "${APP_NAME}-${replace(tgt, "/", "-")}"
+    matrix = {
+        tgt = ["linux/amd64", "linux/arm64"]
+    }
+    platforms = [tgt]
     tags = [
-    "${APP_NAME}:${TAG}-arm64",
-    "${APP_NAME}:${COMMIT_SHA}-arm64"
-  ]
+        "${APP_NAME}:${TAG}-${replace(tgt, "linux/", "")}",
+        "${APP_NAME}:${COMMIT_SHA}-${replace(tgt, "linux/", "")}"
+    ]
 }
