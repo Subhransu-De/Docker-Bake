@@ -14,7 +14,11 @@ variable "TAG" {
 
 variable "COMMIT_SHA" {
     default = ""
-    description = "The last commit's SHA."
+    description = "The last commit's HASH. CMD: git rev-parse --short HEAD"
+}
+
+group "default" {
+    targets = ["build"]
 }
 
 target "base" {
@@ -23,17 +27,14 @@ target "base" {
     args = {
         NODE_VERSION = NODE_VERSION
     }
-    pull = true
-    no-cache = true
+    pull = true       # For illustrative purposes. However, consider avoiding.
+    no-cache = true   # For illustrative purposes. However, consider avoiding.
     labels = {
         maintainer = "Subhransu-De"
     }
     output = ["type=docker"]
 }
 
-group "default" {
-    targets = ["build"]
-}
 
 target "build" {
     inherits = ["base"]
