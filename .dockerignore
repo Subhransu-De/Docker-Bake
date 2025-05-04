@@ -1,0 +1,17 @@
+
+node_modules
+
+# Ignore log files
+npm-debug.log*
+*.log
+
+# Ignore environment files
+.env*
+
+# Ignore Git directory
+.git
+
+# Ignore Docker related files
+Dockerfile
+docker-bake.hcl
+.dockerignore
