@@ -10,7 +10,7 @@ COPY package.json ./
 
 RUN npm install
 
-COPY . .
+COPY index.js .
 
 EXPOSE 8080
 
