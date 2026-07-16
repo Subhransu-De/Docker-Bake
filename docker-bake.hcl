@@ -2,11 +2,6 @@ variable "APP_NAME" {
     default = "myapp"
     description = "The name of the application."
 }
-variable "NODE_VERSION" {
-    default = "22"
-    description = "The version of Node.js to use."
-}
-
 variable "TAG" {
     default = "latest"
     description = "The tag for the application."
@@ -24,9 +19,6 @@ group "default" {
 target "base" {
     context = "."
     dockerfile = "Dockerfile"
-    args = {
-        NODE_VERSION = NODE_VERSION
-    }
     pull = true       # For illustrative purposes. However, consider avoiding.
     no-cache = true   # For illustrative purposes. However, consider avoiding.
     labels = {
