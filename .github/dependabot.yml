@@ -7,6 +7,8 @@ updates:
       interval: "cron"
       cronjob: "0 0 * * *"
       timezone: "Asia/Kolkata"
+    assignees:
+      - "Subhransu-De"
 
   - package-ecosystem: "docker"
     directory: "/"
@@ -14,6 +16,8 @@ updates:
       interval: "cron"
       cronjob: "0 0 * * *"
       timezone: "Asia/Kolkata"
+    assignees:
+      - "Subhransu-De"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -21,3 +25,5 @@ updates:
       interval: "cron"
       cronjob: "0 0 * * *"
       timezone: "Asia/Kolkata"
+    assignees:
+      - "Subhransu-De"
