@@ -1,6 +1,6 @@
 # Docker Bake Example Project
 
-This repository contains the example code used in the article: **[Introduction to Docker Bake](http://blog.subhransude.dev/p/introduction-to-docker-bake?utm_medium=github)**.
+This repository contains the example code used in the article: **[Introduction to Docker Bake](https://subhransu.de/articles/introduction-to-docker-bake/?utm_medium=github)**.
 
 ## Overview
 
